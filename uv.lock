@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.11, <3.14"
 resolution-markers = [
     "python_full_version >= '3.13' and sys_platform == 'win32' and extra != 'extra-21-labobots-rag-workshop-agent' and extra == 'extra-21-labobots-rag-workshop-embeddings'",
@@ -2423,6 +2423,7 @@ wheels = [
 name = "labobots-rag-workshop"
 version = "0.1.0"
 source = { virtual = "." }
+default-groups = []
 dependencies = [
     { name = "beautifulsoup4" },
     { name = "chromadb" },
@@ -2434,7 +2435,7 @@ dependencies = [
     { name = "numpy", version = "2.5.3", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version >= '3.12' and sys_platform == 'darwin') or (python_full_version >= '3.12' and sys_platform == 'emscripten') or (python_full_version >= '3.12' and sys_platform == 'win32') or (python_full_version >= '3.12' and extra != 'extra-21-labobots-rag-workshop-agent') or (extra == 'extra-21-labobots-rag-workshop-agent' and extra == 'extra-21-labobots-rag-workshop-embeddings')" },
     { name = "ollama" },
     { name = "pandas" },
-    { name = "pysqlite3-binary" },
+    { name = "pysqlite3-binary", marker = "sys_platform != 'win32' or (extra == 'extra-21-labobots-rag-workshop-agent' and extra == 'extra-21-labobots-rag-workshop-embeddings')" },
     { name = "requests" },
     { name = "scikit-learn" },
     { name = "streamlit" },
@@ -2481,7 +2482,7 @@ requires-dist = [
     { name = "ollama", specifier = ">=0.4" },
     { name = "openai", marker = "extra == 'agent'", specifier = ">=2.26" },
     { name = "pandas", specifier = ">=2" },
-    { name = "pysqlite3-binary", specifier = ">=0.5.4" },
+    { name = "pysqlite3-binary", marker = "sys_platform != 'win32'", specifier = ">=0.5.4" },
     { name = "python-dotenv", marker = "extra == 'agent'", specifier = "==1.1.0" },
     { name = "requests", specifier = ">=2.31" },
     { name = "scikit-learn", specifier = ">=1.4" },
